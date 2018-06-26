@@ -1,1 +1,6 @@
-# react-calendar
+# React Calendar
+
+### Demo
+
+1. npm install
+2. npm start
