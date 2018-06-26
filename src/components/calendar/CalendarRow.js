@@ -18,10 +18,10 @@ export default class CalendarRow extends Component {
     }
 
     render() {
-        const {calendarRowData, renderRow} = this.props;
+        const {calendarRowData, style, cellStyle, cellHoverStyle, onCellClick, currentDateState, selectedDate} = this.props;
         return (
-            <div style={{display: "flex", ...renderRow}}>
-                { calendarRowData.map((calendarCell, index) => <CalendarCell calendarCellData={calendarCell} key={index} renderCellData={this.renderCellData}/> ) }
+            <div style={{display: "flex", ...style, margin: "2px"}}>
+                { calendarRowData.map((calendarCell, index) => <CalendarCell calendarCellData={calendarCell} key={index} renderCellData={this.renderCellData} cellStyle={cellStyle} cellHoverStyle={cellHoverStyle} onCellClick={onCellClick} currentDateState={currentDateState} selectedDate={selectedDate}/> ) }
             </div>
         );
     }
