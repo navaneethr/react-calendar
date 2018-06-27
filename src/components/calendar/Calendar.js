@@ -98,7 +98,7 @@ export default class Calendar extends Component {
 
                 {
                     showCalendar &&
-                    <div style={{width: "auto", border: "1px solid #c3c3c3", marginTop: "10px", padding: "5px", position: "absolute", borderRadius: "5px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
+                    <div style={{width: "auto", border: "1px solid #c3c3c3", marginTop: "10px", padding: "5px", position: "absolute", background: "#FFFFFF", borderRadius: "5px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
                         <div style={{textAlign: "center", padding: "5px 2px 2px 2px", height: "40px", boxSizing: "border-box", display: "flex", borderRadius: "5px", fontWeight: "bold",  ...monthHeaderStyle}}>
                             <div style={{display: "flex", width: "35px"}} onClick={this.backBtnClick.bind(this)}><img style={{margin: "auto"}} src={backIcon} width={15} alt="back"/></div>
                             <span style={{margin: "auto"}}>{moment(currentDate).format('MMMM YYYY').toUpperCase()}</span>

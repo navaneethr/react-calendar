@@ -17,7 +17,7 @@ class App extends Component {
 
     generateCellStyle(data) {
         const style = moment(data).format("MMDDYY") === moment().format("MMDDYY") ? { cursor: "pointer"} : {cursor: "pointer"};
-        return style
+        return style;
     }
 
     onCellClick(data) {
@@ -33,7 +33,7 @@ class App extends Component {
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h3 className="App-title">REACT CALENDAR</h3>
+                    <h4 className="App-title">React Calendar</h4>
                 </header>
                 <div style={{width: "100%", height: "auto", marginTop: "20px", display: "flex"}}>
                     <Calendar
