@@ -35,7 +35,7 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h3 className="App-title">REACT CALENDAR</h3>
                 </header>
-                <div style={{width: "100%", height: "500px", display: "flex"}}>
+                <div style={{width: "100%", height: "auto", marginTop: "20px", display: "flex"}}>
                     <Calendar
                         inputClassName="calendar-input"  //ClassName of the input field
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String

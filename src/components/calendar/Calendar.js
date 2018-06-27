@@ -6,6 +6,7 @@ import CalendarRow from "./CalendarRow";
 import CalendarCell from "./CalendarCell";
 import backIcon from "../../assets/back.svg";
 import nextIcon from "../../assets/next.svg";
+import "../../stylesheets/calendar.css";
 
 export default class Calendar extends Component {
 
@@ -70,7 +71,7 @@ export default class Calendar extends Component {
     }
 
     setSelectedDate(data) {
-        this.setState({ selectedDate: data });
+        this.setState({ selectedDate: data, showCalendar: false });
         this.props.onCellClick(data)
     }
 
@@ -93,11 +94,11 @@ export default class Calendar extends Component {
 
         return (
             <div style={{width: "auto", position: "relative", ...style}}>
-                <input type="text" id="calendar_input" className={inputClassName} name="check" onClick={this.openCloseCalendar.bind(this)} />
+                <input type="text" id="calendar_input" className={inputClassName} name="check" value={selectedDate.format("MM/DD/YYYY")} onClick={this.openCloseCalendar.bind(this)} onChange={() => {}}/>
 
                 {
                     showCalendar &&
-                    <div style={{width: "auto", border: "1px solid #c3c3c3", marginTop: "10px", padding: "5px", position: "absolute", borderRadius: "5px"}}>
+                    <div style={{width: "auto", border: "1px solid #c3c3c3", marginTop: "10px", padding: "5px", position: "absolute", borderRadius: "5px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
                         <div style={{textAlign: "center", padding: "5px 2px 2px 2px", height: "40px", boxSizing: "border-box", display: "flex", borderRadius: "5px", fontWeight: "bold",  ...monthHeaderStyle}}>
                             <div style={{display: "flex", width: "35px"}} onClick={this.backBtnClick.bind(this)}><img style={{margin: "auto"}} src={backIcon} width={15} alt="back"/></div>
                             <span style={{margin: "auto"}}>{moment(currentDate).format('MMMM YYYY').toUpperCase()}</span>
