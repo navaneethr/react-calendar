@@ -11,7 +11,6 @@ class App extends Component {
     }
 
     generateRowStyle(data, index) {
-        console.log(data);
         const style = (index % 2 === 0) ? {} : {background: "white"}
         return style;
     }
