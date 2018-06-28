@@ -1,6 +1,7 @@
 import * as React from "react";
 import {Component} from "react";
 import * as moment from "moment";
+import "../../stylesheets/calendar.css";
 
 export default class CalendarCell extends Component {
 
@@ -27,7 +28,7 @@ export default class CalendarCell extends Component {
         const hoverStyle = this.state.hover ? (cellHoverStyle ? cellHoverStyle : {}) : {};
 
         return (
-            <div onClick={() => { onCellClick(calendarCellData) }} onMouseEnter={this.onMouseEnterLeave.bind(this)} onMouseLeave={this.onMouseEnterLeave.bind(this)} style={{display: "flex", width: "35px", height: "35px", flexDirection: "column", ...styles, ...cellStyles, margin: "2px", borderRadius: "3px", ...selectedCellStyle, ...hoverStyle}}>
+            <div onClick={() => { onCellClick(calendarCellData) }} onMouseEnter={this.onMouseEnterLeave.bind(this)} onMouseLeave={this.onMouseEnterLeave.bind(this)} className="individual-date-cell" style={{...styles, ...cellStyles, ...selectedCellStyle, ...hoverStyle}}>
                 <span style={{margin: "auto"}}>{renderCellData(calendarCellData)}</span>
             </div>
         );

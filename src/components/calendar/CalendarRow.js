@@ -2,6 +2,7 @@ import * as React from "react";
 import {Component} from "react";
 import * as moment from "moment";
 import CalendarCell from "./CalendarCell";
+import "../../stylesheets/calendar.css";
 
 
 export default class CalendarRow extends Component {
@@ -20,7 +21,7 @@ export default class CalendarRow extends Component {
     render() {
         const {calendarRowData, style, cellStyle, cellHoverStyle, onCellClick, currentDateState, selectedDate} = this.props;
         return (
-            <div style={{display: "flex", ...style, margin: "2px"}}>
+            <div className="week-row-parent" style={{...style}}>
                 { calendarRowData.map((calendarCell, index) => <CalendarCell calendarCellData={calendarCell} key={index} renderCellData={this.renderCellData} cellStyle={cellStyle} cellHoverStyle={cellHoverStyle} onCellClick={onCellClick} currentDateState={currentDateState} selectedDate={selectedDate}/> ) }
             </div>
         );

@@ -13,3 +13,47 @@ input {
 input:focus {
      outline: none;
  }
+
+.calendar-parent-div {
+    width: auto;
+    border: 1px solid #c3c3c3;
+    margin-top: 10px;
+    padding: 5px;
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.header-parent {
+    text-align: center;
+    padding: 5px 2px 2px 2px;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.back-next-icon-div {
+    display: flex;
+    width: 35px;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.week-header-cell, .week-row-parent {
+    display: flex;
+    margin: 2px;
+}
+
+.individual-date-cell {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    flex-direction: column;
+    margin: 2px;
+    border-radius: 3px;
+}
