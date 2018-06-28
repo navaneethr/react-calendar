@@ -37,11 +37,11 @@ class App extends Component {
                 </header>
                 <div style={{marginTop: "10px"}}>
                     <Calendar
-                        cellHoverStyle={{background: "red", color: "#FFFFFF"}}
+                        cellHoverStyle={{background: "#56b8f78a", color: "#000000"}}
                         cellStyle={this.generateCellStyle}
                         headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
-                        monthHeaderStyle={{background: "#ffcd01"}}
+                        monthHeaderStyle={{background: "#56b8f7", color: "#FFFFFF"}}
                         onCellClick={this.onCellClick}
                         onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
@@ -49,11 +49,11 @@ class App extends Component {
                         style={{margin: "20px"}}
                     />
                     <Calendar
-                        cellHoverStyle={{background: "red", color: "#FFFFFF"}}
+                        cellHoverStyle={{background: "#56b8f78a", color: "#000000"}}
                         cellStyle={this.generateCellStyle}
                         headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
-                        monthHeaderStyle={{background: "#ffcd01"}}
+                        monthHeaderStyle={{background: "#56b8f7", color: "#FFFFFF"}}
                         onCellClick={this.onCellClick}
                         onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
