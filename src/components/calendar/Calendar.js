@@ -19,6 +19,27 @@ export default class Calendar extends Component {
         }
     }
 
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+    }
+
+    /**
+     * Set the wrapper ref
+     */
+    setCalendarWrapperRef(node) {
+        this.calendarWrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.calendarWrapperRef && !this.calendarWrapperRef.contains(event.target)) {
+            this.setState({showCalendar: false})
+        }
+    }
+
     openCloseCalendar() {
         this.setState({showCalendar: !this.state.showCalendar})
     }
@@ -59,15 +80,11 @@ export default class Calendar extends Component {
     }
 
     backBtnClick() {
-        this.setState({
-            currentDate: moment(this.state.currentDate).subtract(1, 'months')
-        })
+        this.setState({ currentDate: moment(this.state.currentDate).subtract(1, 'months') })
     }
 
     nextBtnClick() {
-        this.setState({
-            currentDate: moment(this.state.currentDate).add(1, 'months')
-        })
+        this.setState({ currentDate: moment(this.state.currentDate).add(1, 'months') })
     }
 
     setSelectedDate(data) {
@@ -77,9 +94,7 @@ export default class Calendar extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if(prevState.selectedDate.month() !== moment(this.state.selectedDate).month()) {
-            this.setState({
-                currentDate: moment(this.state.selectedDate)
-            })
+            this.setState({ currentDate: moment(this.state.selectedDate) })
         }
     }
 
@@ -93,7 +108,7 @@ export default class Calendar extends Component {
         const weekDays = moment.weekdays().map((weekday) => weekday);
 
         return (
-            <div style={{width: "auto", position: "relative", ...style}}>
+            <div style={{height: "auto", display: "flex", width: "auto", position: "relative", display: "inline-block", ...style}} ref={this.setCalendarWrapperRef.bind(this)}>
                 <input type="text" id="calendar_input" className={inputClassName} name="check" value={selectedDate.format("MM/DD/YYYY")} onClick={this.openCloseCalendar.bind(this)} onChange={() => {}}/>
 
                 {
