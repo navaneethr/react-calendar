@@ -56,4 +56,5 @@ input:focus {
     flex-direction: column;
     margin: 2px;
     border-radius: 3px;
+    cursor: pointer;
 }

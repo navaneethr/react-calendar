@@ -11,13 +11,13 @@ class App extends Component {
     }
 
     generateRowStyle(data, index) {
+        console.log(data);
         const style = (index % 2 === 0) ? {} : {background: "white"}
         return style;
     }
 
     generateCellStyle(data) {
-        const style = moment(data).format("MMDDYY") === moment().format("MMDDYY") ? { cursor: "pointer"} : {cursor: "pointer"};
-        return style;
+        return {};
     }
 
     onCellClick(data) {
@@ -37,16 +37,16 @@ class App extends Component {
                 </header>
                 <div style={{width: "100%", height: "auto", marginTop: "20px", display: "flex"}}>
                     <Calendar
+                        cellHoverStyle={{background: "red", color: "#FFFFFF"}}
+                        cellStyle={this.generateCellStyle}
+                        headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
+                        monthHeaderStyle={{background: "#5fe08f"}}
+                        onCellClick={this.onCellClick}
+                        onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
                         rowStyle={this.generateRowStyle}  //Takes a function, has a parameter of "data, index" and should return a style object
                         style={{margin: "auto"}}
-                        cellStyle={this.generateCellStyle}
-                        headerStyle={{background: "#ffcd00"}}
-                        monthHeaderStyle={{background: "#5fe08f"}}
-                        cellHoverStyle={{background: "red", color: "#FFFFFF"}}
-                        onCellClick={this.onCellClick}
-                        onHeaderCellClick={this.onHeaderCellClick}
                     />
                 </div>
             </div>
