@@ -14,7 +14,7 @@ export default class Calendar extends Component {
         super(props);
         this.state = {
             showCalendar: false,
-            currentDate: moment(), //For the current month
+            currentDate: moment(),
             selectedDate: moment()
         }
     }
@@ -27,9 +27,6 @@ export default class Calendar extends Component {
         document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
     }
 
-    /**
-     * Set the wrapper ref
-     */
     setCalendarWrapperRef(node) {
         this.calendarWrapperRef = node;
     }
