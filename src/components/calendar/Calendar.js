@@ -7,6 +7,8 @@ import CalendarCell from "./CalendarCell";
 import backIcon from "../../assets/back.svg";
 import nextIcon from "../../assets/next.svg";
 import "../../stylesheets/calendar.css";
+import {generateDays} from "../../utils/utilFunctions/utilities";
+import {DAYS_TO_DISPLAY_MONTH} from "../../constants/calendarContants";
 
 export default class Calendar extends Component {
 
@@ -41,30 +43,6 @@ export default class Calendar extends Component {
         this.setState({showCalendar: !this.state.showCalendar})
     }
 
-    generateDays(startDate, endDate) {
-        let dates = [];
-        const start = moment(startDate).startOf('day');
-        const end = moment(endDate).startOf('day');
-
-        // Getting the dates between start and end including start and end
-        while(start.add(1, 'days').diff(end) < 0) { dates.push(moment(start.clone().toDate())) }
-        dates = [startDate, ...dates, endDate];
-
-        // Getting the days before the start up until previous Sunday
-        const dayInWeekStartDate = startDate.day();
-        let daysOfPreviousMonth = [];
-        for (let i = dayInWeekStartDate; i>0; i--) { daysOfPreviousMonth.push(moment(moment(startDate).subtract(i, "days").clone().toDate())) }
-        dates = [...daysOfPreviousMonth, ...dates];
-
-        // Getting the days after the end up until last saturday
-        const numOfDaysLeftToFill = 42 - dates.length;
-        let daysOfNextMonth = [];
-        for (let i = 1; i <= numOfDaysLeftToFill; i++) { daysOfNextMonth.push(moment(moment(endDate).add(i, "days").clone().toDate())) }
-        dates = [...dates, ...daysOfNextMonth];
-
-        return dates;
-    };
-
     getStartEndDatesOfMonth(currentDate) {
         // month in moment is 0 based, so 9 is actually october, subtract 1 to compensate
         // array is 'year', 'month', 'day', etc
@@ -86,7 +64,7 @@ export default class Calendar extends Component {
 
     setSelectedDate(data) {
         this.setState({ selectedDate: data, showCalendar: false });
-        this.props.onCellClick(data)
+        this.props.onCellClick ? this.props.onCellClick(data) : {}
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -100,7 +78,7 @@ export default class Calendar extends Component {
         const {showCalendar, currentDate, selectedDate} = this.state;
         const {startDate, endDate} = this.getStartEndDatesOfMonth(currentDate);
 
-        const days = this.generateDays(startDate,endDate);
+        const days = generateDays(startDate, endDate, DAYS_TO_DISPLAY_MONTH);
         let calendarRows = _.chunk(days, 7);
         const weekDays = moment.weekdays().map((weekday) => weekday);
         const showCalendarBool = sticky ? sticky : showCalendar;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import '../stylesheets/App.css';
 import Calendar from "./calendar/Calendar";
-import * as moment from "moment";
+import HeatMap from "./heatmap/HeatMap";
 
 class App extends Component {
 
@@ -42,7 +42,7 @@ class App extends Component {
                         cellStyle={this.generateCellStyle}
                         headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
-                        monthHeaderStyle={{background: "#56b8f7", color: "#FFFFFF"}}
+                        monthHeaderStyle={{background: "#57baf9", color: "#FFFFFF"}}
                         onCellClick={this.onCellClick}
                         onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
@@ -58,7 +58,7 @@ class App extends Component {
                         cellStyle={this.generateCellStyle}
                         headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
-                        monthHeaderStyle={{background: "#56b8f7", color: "#FFFFFF"}}
+                        monthHeaderStyle={{background: "#57baf9", color: "#FFFFFF"}}
                         onCellClick={this.onCellClick}
                         onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
@@ -70,13 +70,17 @@ class App extends Component {
                         cellStyle={this.generateCellStyle}
                         headerStyle={{background: "#ffcd00"}}
                         inputClassName="calendar-input"  //ClassName of the input field
-                        monthHeaderStyle={{background: "#56b8f7", color: "#FFFFFF"}}
+                        monthHeaderStyle={{background: "#57baf9", color: "#FFFFFF"}}
                         onCellClick={this.onCellClick}
                         onHeaderCellClick={this.onHeaderCellClick}
                         renderHeaderCell={this.renderHeaderCell}  //Takes a function, has a parameter of "data" and should return a String
                         rowStyle={this.generateRowStyle}  //Takes a function, has a parameter of "data, index" and should return a style object
                         style={{margin: "20px"}}
                     />
+                </div>
+                <div style={{marginTop: "10px"}}>
+                    <h2>Heat Map Calendar</h2>
+                    <HeatMap/>
                 </div>
             </div>
         );
