@@ -1,0 +1,11 @@
+.heat-map-cell {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    font-size: 12px;
+    border: 1px #56D5FA;
+}
+
+.heat-map-cell-content {
+    margin: auto;
+}
