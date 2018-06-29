@@ -4,6 +4,7 @@
 
 - npm install
 - npm start
+### React Calendar
 
 ![React Calendar](https://github.com/navaneethr/react-calendar/blob/master/src/assets/demo.png) 
 
@@ -22,3 +23,7 @@
 | rowStyle          | `(rowData:Array[moment], index: number) => Object`       | function to render styles of each row in the calendar                          |
 | sticky            | `Boolean`                                                | a sticky calendar instead of an input calendar, by default, it is set to false |
 | style             | `Object`                                                 | style of the parent div of the component                                       |
+
+### React Heat Map
+
+![React Heat Map](https://github.com/navaneethr/react-calendar/blob/master/src/assets/heatmap.png) 
