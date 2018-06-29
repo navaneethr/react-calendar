@@ -26,6 +26,16 @@ input:focus {
     z-index: 99;
 }
 
+.sticky-calendar {
+    position: relative;
+    z-index: 1;
+}
+
+.title-description {
+    color: #56D5FA;
+    font-weight: normal;
+}
+
 .header-parent {
     text-align: center;
     padding: 5px 2px 2px 2px;
@@ -39,6 +49,7 @@ input:focus {
 .back-next-icon-div {
     display: flex;
     width: 35px;
+    cursor: pointer;
 }
 
 .margin-auto {

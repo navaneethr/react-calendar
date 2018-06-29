@@ -96,21 +96,24 @@ export default class Calendar extends Component {
     }
 
     render() {
-        const {inputClassName, renderHeaderCell, rowStyle, style, headerStyle, cellStyle, monthHeaderStyle, cellHoverStyle, onHeaderCellClick} = this.props;
+        const {inputClassName, renderHeaderCell, rowStyle, style, headerStyle, cellStyle, monthHeaderStyle, cellHoverStyle, onHeaderCellClick, sticky} = this.props;
         const {showCalendar, currentDate, selectedDate} = this.state;
         const {startDate, endDate} = this.getStartEndDatesOfMonth(currentDate);
 
         const days = this.generateDays(startDate,endDate);
         let calendarRows = _.chunk(days, 7);
         const weekDays = moment.weekdays().map((weekday) => weekday);
+        const showCalendarBool = sticky ? sticky : showCalendar;
+        const stickyClassName = sticky ? "calendar-parent-div sticky-calendar" : "calendar-parent-div"
 
         return (
             <div style={{height: "auto", display: "flex", width: "auto", position: "relative", display: "inline-block", ...style}} ref={this.setCalendarWrapperRef.bind(this)}>
-                <input type="text" id="calendar_input" className={inputClassName} name="check" value={selectedDate.format("MM/DD/YYYY")} onClick={this.openCloseCalendar.bind(this)} onChange={() => {}}/>
-
                 {
-                    showCalendar &&
-                    <div className="calendar-parent-div">
+                    !sticky && <input type="text" id="calendar_input" className={inputClassName} name="check" value={selectedDate.format("MM/DD/YYYY")} onClick={this.openCloseCalendar.bind(this)} onChange={() => {}}/>
+                }
+                {
+                    showCalendarBool &&
+                    <div className={stickyClassName}>
                         <div className="header-parent" style={{...monthHeaderStyle}}>
                             <div className="back-next-icon-div" onClick={this.backBtnClick.bind(this)}><img className="margin-auto" src={backIcon} width={15} alt="back"/></div>
                             <span className="margin-auto">{moment(currentDate).format('MMMM YYYY').toUpperCase()}</span>

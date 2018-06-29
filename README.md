@@ -20,4 +20,5 @@
 | onHeaderCellClick | `(current:moment) => { ... }`                            | function called when the user clicks on the week header cells |
 | renderHeaderCell  | `(day: string) => React.Node`                            | function to render the week header cell                       |
 | rowStyle          | `(rowData:Array[moment], index: number) => Object`       | function to render styles of each row in the calendar         |
+| sticky            | `Boolean`                                                | a sticky calendar instead of an input calendar                |
 | style             | `Object`                                                 | style of the parent div of the component                      |
