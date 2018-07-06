@@ -24,6 +24,6 @@
 | sticky            | `Boolean`                                                | a sticky calendar instead of an input calendar, by default, it is set to false |
 | style             | `Object`                                                 | style of the parent div of the component                                       |
 
-### React Heat Map - under development
+### React Heat Map
 
 ![React Heat Map](https://github.com/navaneethr/react-calendar/blob/master/src/assets/heatmap.png) 

@@ -28,6 +28,32 @@ class App extends Component {
     }
 
     render() {
+        const dateArr = [
+            {date: "2018-01-27", count: 18},
+            {date: "2018-02-28", count: 12},
+            {date: "2018-02-23", count: 20},
+            {date: "2018-03-24", count: 10},
+            {date: "2018-03-25", count: 78},
+            {date: "2018-12-26", count: 28},
+            {date: "2018-07-23", count: 20},
+            {date: "2018-07-23", count: 10},
+            {date: "2018-07-25", count: 15},
+            {date: "2018-07-26", count: 78},
+            {date: "2018-07-27", count: 18},
+            {date: "2018-07-28", count: 12},
+            {date: "2018-01-23", count: 20},
+            {date: "2018-02-24", count: 10},
+            {date: "2018-10-26", count: 28},
+            {date: "2018-09-27", count: 18},
+            {date: "2018-12-28", count: 12},
+            {date: "2019-12-28", count: 12},
+            {date: "2018-05-23", count: 20},
+            {date: "2018-05-24", count: 10},
+            {date: "2018-08-26", count: 28},
+            {date: "2018-09-27", count: 18},
+            {date: "2018-11-28", count: 12},
+            {date: "2019-11-28", count: 92}
+        ]
         return (
             <div className="App">
                 <header className="App-header">
@@ -80,7 +106,11 @@ class App extends Component {
                 </div>
                 <div style={{marginTop: "10px"}}>
                     <h2>Heat Map Calendar</h2>
-                    <HeatMap/>
+                    <HeatMap
+                        dates={dateArr}
+                        colorCode="#57baf9"
+                        cellSize={30}
+                    />
                 </div>
             </div>
         );

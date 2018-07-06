@@ -24,22 +24,32 @@ export function generateDays(startDate, endDate, days) {
     return dates;
 }
 
-export function colorShades(hex, lum) {
+export function colorShades(col, amt) {
 
-    // validate hex string
-    hex = String(hex).replace(/[^0-9a-f]/gi, '');
-    if (hex.length < 6) {
-        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-    }
-    lum = lum || 0;
+    var usePound = false;
 
-    // convert to decimal and change luminosity
-    var rgb = "#", c, i;
-    for (i = 0; i < 3; i++) {
-        c = parseInt(hex.substr(i*2,2), 16);
-        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-        rgb += ("00"+c).substr(c.length);
+    if (col[0] == "#") {
+        col = col.slice(1);
+        usePound = true;
     }
 
-    return rgb;
+    var num = parseInt(col,16);
+
+    var r = (num >> 16) + amt;
+
+    if (r > 255) r = 255;
+    else if  (r < 0) r = 0;
+
+    var b = ((num >> 8) & 0x00FF) + amt;
+
+    if (b > 255) b = 255;
+    else if  (b < 0) b = 0;
+
+    var g = (num & 0x0000FF) + amt;
+
+    if (g > 255) g = 255;
+    else if (g < 0) g = 0;
+
+    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+
 }
