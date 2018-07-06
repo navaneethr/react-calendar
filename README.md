@@ -35,6 +35,6 @@
 
 | name              | type                                                     | description                                                                    |
 |-------------------|----------------------------------------------------------|--------------------------------------------------------------------------------|
-| dates             | `Array<{date: "YYYY-MM-DD", count:  number}>`            | Array of Objects with date and count of the measure                            |
+| dates             | `{date: "YYYY-MM-DD", count:  number}[]`            | Array of Objects with date and count of the measure                            |
 | colorCode         | `String`                                                 | Color Hexcode                                                                  |
 | cellSize          | `Number`                                                 | The size of the cell, basically it is the width and height of the cell         |
