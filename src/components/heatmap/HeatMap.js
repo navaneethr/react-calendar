@@ -1,7 +1,9 @@
 import * as React from "react";
 import {Component} from "react";
 import * as moment from "moment";
+import Tooltip from 'rc-tooltip';
 import "../../stylesheets/heatmap.css";
+import "rc-tooltip/assets/bootstrap_white.css";
 import backIcon from "../../assets/back.svg";
 import nextIcon from "../../assets/next.svg";
 import {colorShades, generateDays} from "../../utils/utilFunctions/utilities";
@@ -74,9 +76,19 @@ export default class HeatMap extends Component {
                                         week.map((day, dayIdx) => {
                                             let colorShade = (typeof obj[day.format("YYYY-MM-DD")] !== 'undefined') ? colorShades(colorCode, 50 - obj[day.format("YYYY-MM-DD")])  : "#e8ecf2" ;
                                             return (
-                                                <label title={day.format("YYYY-MM-DD")} key={dayIdx} className="heat-map-cell" style={{background: colorShade, height: cellSize, width: cellSize}}>
+                                                <Tooltip
+                                                    overlay={<div><h3>Date: {day.format("YYYY-MM-DD")}</h3><h3>Count: {obj[day.format("YYYY-MM-DD")] ? obj[day.format("YYYY-MM-DD")] : 0}</h3></div>}
+                                                    placement="top"
+                                                    trigger={['click']}
+                                                    mouseEnterDelay={0}
+                                                    mouseLeaveDelay={0}
+                                                    destroyTooltipOnHide={true}
+                                                    overlayStyle={{width: "200px", borderRadius: "10px"}}
+                                                >
+                                                <label key={dayIdx} className="heat-map-cell" style={{background: colorShade, height: cellSize, width: cellSize}}>
                                                     { <span className="heat-map-cell-content"></span> }
                                                 </label>
+                                                </Tooltip>
                                             )
                                         })
                                     }
