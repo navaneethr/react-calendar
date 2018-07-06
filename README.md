@@ -6,7 +6,10 @@
 - npm start
 ### React Calendar
 
-![React Calendar](https://github.com/navaneethr/react-calendar/blob/master/src/assets/demo.png) 
+| Regualr Calendar                                                                                | Sticky Calendar                                                                                   |
+|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ![React Calendar](https://github.com/navaneethr/react-calendar/blob/master/src/assets/demo.png) | ![React Calendar](https://github.com/navaneethr/react-calendar/blob/master/src/assets/sticky.png) |
+   
 
 ### Props
 
