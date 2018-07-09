@@ -106,11 +106,11 @@ class App extends Component {
                 </div>
                 <div style={{marginTop: "10px"}}>
                     <h2>Heat Map Calendar</h2>
-                    <HeatMap
-                        dates={dateArr}
-                        colorCode="#57baf9"
-                        cellSize={30}
-                    />
+                        <HeatMap
+                            dates={dateArr}
+                            colorCode="#57baf9"
+                            cellSize={20}
+                        />
                 </div>
             </div>
         );
