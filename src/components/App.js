@@ -106,6 +106,7 @@ class App extends Component {
                 </div>
                 <div style={{marginTop: "10px"}}>
                     <h2>Heat Map Calendar</h2>
+                    <h4>Click on one of the colored cells to reveal more data</h4>
                         <HeatMap
                             dates={dateArr}
                             colorCode="#57baf9"
